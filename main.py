@@ -6,7 +6,6 @@ from bson import ObjectId
 import pymongo
 from tqdm import tqdm
 
-TOKEN = 'cb9d94d2b98c25a04bb26ba05f8716b2179df6dc421a0b3371d57bfa90a77d345162bde4a48585d9598d5'
 client = MongoClient("mongodb+srv://mongo_db_admin:Qqwerty123456@cluster0.fvfnv.mongodb.net/<dbname>?retryWrites=true&w=majority")
 
 class Users:
