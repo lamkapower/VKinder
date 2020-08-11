@@ -122,24 +122,28 @@ class Users:
 
 if __name__ == "__main__":
     while True:
-        token = input('Введите TOKEN для успешной аутентификации: ')
-        age = input('Укажите возраст для поиска подходящей пары: ')
-        sex = input('Укажите пол мужчина/женьщина или оставьте поле пустым для снятия оганичений: ')
-        city = input('Укажите город для поиска: ')
-        status = input('''
-            Укажите семейное положение (цифровое значение):
-            1 - не женат (не замужем);
-            2 - встречается;
-            3 - помолвлен(-а);
-            4 - женат (замужем);
-            5 - всё сложно;
-            6 - в активном поиске;
-            7 - влюблен(-а);
-            8 - в гражданском браке.
-        ''')
-        User = Users(token, age, sex, city, status)
-        users_db = client['users_db']
-        users_collection = users_db['collection']
-        for item in User.get_photos():
-            users_collection.insert_one(item).inserted_id
+        token = input('Введите TOKEN для успешной аутентификации или "q" для выхода: ')
+        if token == 'q':
+            break
+        else:
+            age = input('Укажите возраст для поиска подходящей пары: ')
+            sex = input('Укажите пол мужчина/женьщина или оставьте поле пустым для снятия оганичений: ')
+            city = input('Укажите город для поиска: ')
+            status = input('''
+                Укажите семейное положение (цифровое значение):
+                1 - не женат (не замужем);
+                2 - встречается;
+                3 - помолвлен(-а);
+                4 - женат (замужем);
+                5 - всё сложно;
+                6 - в активном поиске;
+                7 - влюблен(-а);
+                8 - в гражданском браке.
+            ''')
+            User = Users(token, age, sex, city, status)
+            print(User.get_photos())
+            # users_db = client['users_db']
+            # users_collection = users_db['collection']
+            # for item in User.get_photos():
+            #     users_collection.insert_one(item).inserted_id
         
