@@ -141,9 +141,9 @@ if __name__ == "__main__":
                 8 - в гражданском браке.
             ''')
             User = Users(token, age, sex, city, status)
-            print(User.get_photos())
-            # users_db = client['users_db']
-            # users_collection = users_db['collection']
-            # for item in User.get_photos():
-            #     users_collection.insert_one(item).inserted_id
+            User.get_photos()
+            users_db = client['users_db']
+            users_collection = users_db['collection']
+            for item in User.get_photos():
+                users_collection.insert_one(item).inserted_id
         
